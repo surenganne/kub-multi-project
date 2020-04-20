@@ -26,6 +26,26 @@ agent {
                 sh 'cd ${WORKSPACE}/sa-webapp && docker build -t sa-webapp .'
             }
         }
+        stage('Build Docker sa-logic') {
+            steps {
+                sh 'cd ${WORKSPACE}/sa-logic && docker build -t sa-logic .'
+            }
+        }
+        stage('Push to registry') {
+            steps {
+                sh 'docker tag sa-frontend basilvarghese/sa-frontend'
+                sh 'docker tag sa-webapp basilvarghese/sa-webapp'        
+                sh 'docker tag sa-logic basilvarghese/sa-logic'        
+                sh 'docker push basilvarghese/sa-frontend'
+                sh 'docker push basilvarghese/sa-webapp'
+                sh 'docker push basilvarghese/sa-logic'
+            }
+        }
+        stage('Deploy to kubernetes') {
+            steps {
+                sh 'cd ${WORKSPACE}/resource-manifests && kubectl apply -f .'
+            }
+        }
     }
 }
 
