@@ -51,6 +51,12 @@ agent {
                 archiveArtifacts '**/*.jar'
             }
         }
+        stage('Email Notification') {
+            steps {
+                emailext body: 'Please check', subject: 'Build Failed', to: 'basil1987@gmail.com'
+            }
+        }
+
     }
 }
 
