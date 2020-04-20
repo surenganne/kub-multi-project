@@ -46,6 +46,11 @@ agent {
                 sh 'cd ${WORKSPACE}/resource-manifests && kubectl apply -f .'
             }
         }
+        stage('Archieve Artifacts') {
+            steps {
+                archiveArtifacts '**/*.jar'
+            }
+        }
     }
 }
 
