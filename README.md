@@ -10,9 +10,3 @@ To learn more about Kubernetes and other related topics check the following exam
 * [Simple CI/CD for Kubernetes with Azure DevOps](https://www.orange-networks.com/blogs/224-azure-devops-ci-cd-pipeline-to-deploy-to-kubernetes)
 * Envoy series - to be added!
 
-More lines of code 
-
-
-gsdafdasf
-
-gsgfsdfds
